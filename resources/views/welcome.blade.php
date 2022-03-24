@@ -9,9 +9,14 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <script src="{{ mix('/js/app.js') }}"></script>
 
     </head>
-    <body class="antialiased">
-        
+    <body>
+        <div id="app">
+            <h1 class="cursor-pointer"> Testing </h1>
+
+            <main-component></main-component>
+         </div>
     </body>
 </html>
