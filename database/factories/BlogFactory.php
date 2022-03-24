@@ -17,7 +17,11 @@ class BlogFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->name(),
+            'author' => $this->faker->unique()->safeEmail(),
+            'created_at' => now(),
+            'body' => $this->faker->sentence(),
+            'likes' => $this->faker->randomDigit(),
         ];
     }
 }
