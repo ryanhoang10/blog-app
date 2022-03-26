@@ -15,7 +15,8 @@
         <div id="app">
             <h1 class="cursor-pointer"> Testing </h1>
 
-            <main-component></main-component>
+            {{-- <home :blog={{ $blogs }}></home> --}}
+            {{-- <main-component></main-component> --}}
          </div>
     </body>
 </html>
