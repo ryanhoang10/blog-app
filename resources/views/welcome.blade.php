@@ -13,7 +13,7 @@
     </head>
     <body>
         <div id="app">
-            <h1 class="cursor-pointer"> Welcome To The Ryan's Blog </h1>
+            <site-header></site-header>
             <home :blogs='@json($blogs)'></home>
          </div>
     </body>

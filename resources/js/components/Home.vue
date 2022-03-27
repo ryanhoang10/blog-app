@@ -1,8 +1,7 @@
 <template>
     <div class="container">
         <div v-for="(item, blog) in blogs" :key="blog">
-            <h3>item => {{ item.title }}</h3>
-
+            <h3>{{ item.title }}</h3>
             <div>
                 <p>{{ item.created_at }}</p>
                 <p>{{ item.body }}</p>

@@ -11745,9 +11745,52 @@ Ensure the default browser behavior of the `hidden` attribute.
     max-width: 1536px;
   }
 }
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.mt-0 {
+  margin-top: 0px;
+}
 .block {
   display: block;
 }
 .cursor-pointer {
   cursor: pointer;
+}
+.text-center {
+  text-align: center;
+}
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+.font-medium {
+  font-weight: 500;
+}
+.leading-tight {
+  line-height: 1.25;
+}
+.text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity));
+}
+.text-blue-300 {
+  --tw-text-opacity: 1;
+  color: rgb(147 197 253 / var(--tw-text-opacity));
+}
+.text-green-300 {
+  --tw-text-opacity: 1;
+  color: rgb(134 239 172 / var(--tw-text-opacity));
+}
+.text-green-900 {
+  --tw-text-opacity: 1;
+  color: rgb(20 83 45 / var(--tw-text-opacity));
+}
+.text-emerald-900 {
+  --tw-text-opacity: 1;
+  color: rgb(6 78 59 / var(--tw-text-opacity));
+}
+.text-emerald-700 {
+  --tw-text-opacity: 1;
+  color: rgb(4 120 87 / var(--tw-text-opacity));
 }
