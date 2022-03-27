@@ -8,6 +8,7 @@
 import Search from './SearchBar';
 
     export default {
+        // Search,
         mounted() {
             console.log('testing mounted.')
         },

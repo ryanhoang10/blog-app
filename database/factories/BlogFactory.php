@@ -20,7 +20,7 @@ class BlogFactory extends Factory
             'title' => $this->faker->name(),
             'author' => $this->faker->unique()->safeEmail(),
             'created_at' => now(),
-            'body' => $this->faker->sentence(),
+            'body' => $this->faker->paragraph(),
             'likes' => $this->faker->randomDigit(),
         ];
     }
