@@ -13,10 +13,8 @@
     </head>
     <body>
         <div id="app">
-            <h1 class="cursor-pointer"> Testing </h1>
-
-            {{-- <home :blog={{ $blogs }}></home> --}}
-            {{-- <main-component></main-component> --}}
+            <h1 class="cursor-pointer"> Welcome To The Ryan's Blog </h1>
+            <home :blogs='@json($blogs)'></home>
          </div>
     </body>
 </html>

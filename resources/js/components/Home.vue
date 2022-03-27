@@ -1,14 +1,13 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
+        <div v-for="(item, blog) in blogs" :key="blog">
+            <h3>item => {{ item.title }}</h3>
 
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
+            <div>
+                <p>{{ item.created_at }}</p>
+                <p>{{ item.body }}</p>
+                <p>{{ item.author }}</p>   
+                <p>{{ item.likes }}</p>
             </div>
         </div>
     </div>
@@ -17,10 +16,10 @@
 <script>
     export default {
         mounted() {
-            console.log('Component mounted.')
+            console.log('ello mounted.')
         },
-        data() {
-            blog: blog
+        props: {
+            blogs: Array
         }
     }
 </script>
