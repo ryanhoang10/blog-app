@@ -19,6 +19,7 @@ class BlogFactory extends Factory
         return [
             'title' => $this->faker->name(),
             'author' => $this->faker->unique()->safeEmail(),
+            // 'category' => $this->faker->name(),
             'created_at' => now(),
             'body' => $this->faker->paragraph(),
             'likes' => $this->faker->randomDigit(),
