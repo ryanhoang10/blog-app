@@ -13,4 +13,19 @@ class BlogController extends Controller
 
         return view('welcome', compact('blogs'));
     }
+
+    public function store(Request $request)
+    {
+    
+    }
+
+    public function delete(Request $request)
+    {
+    
+    }
+    
+    public function edit(Request $request)
+    {
+    
+    }
 }
