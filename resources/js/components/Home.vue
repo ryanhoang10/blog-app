@@ -4,6 +4,7 @@
             <div v-if="blog == 0" class="mt-4 border border-sky-500">
                 <h3 class="text-center text-lg">{{ item.title }}</h3>
                 <div>
+                    <h5>{{ item.category }}</h5>
                     <p>{{ item.body }}</p>
                     <p><b>Written By:</b>  {{ item.author }}</p>   
                     <div class="flex justify-between mt-2">
@@ -16,6 +17,7 @@
             <div v-else class="flex justify-between">
                 <!-- <h3>{{ item.title }}</h3>
                 <div>
+                    <h5>{{ item.category }}</h5>
                     <p>{{ item.body }}</p>
                     <p>{{ item.author }}</p>   
                     <div class="flex justify-between">

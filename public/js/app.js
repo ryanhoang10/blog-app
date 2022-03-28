@@ -5375,14 +5375,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  // Search,
   mounted: function mounted() {
     console.log('testing mounted.');
   },
   components: {
-    'Search': _SearchBar__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Search: _SearchBar__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -5399,6 +5399,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
 //
 //
 //
@@ -28191,12 +28193,20 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "h1",
-    {
-      staticClass:
-        "leading-tight text-5xl mt-0 mb-2 text-emerald-700 mb-2 text-center",
-    },
-    [_vm._v("Welcome to The Blog Page")]
+    "div",
+    [
+      _c(
+        "h1",
+        {
+          staticClass:
+            "leading-tight text-5xl mt-0 mb-2 text-emerald-700 mb-2 text-center",
+        },
+        [_vm._v("Welcome to The Blog Page")]
+      ),
+      _vm._v(" "),
+      _c("Search"),
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -28234,6 +28244,8 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("div", [
+                _c("h5", [_vm._v(_vm._s(item.category))]),
+                _vm._v(" "),
                 _c("p", [_vm._v(_vm._s(item.body))]),
                 _vm._v(" "),
                 _c("p", [
