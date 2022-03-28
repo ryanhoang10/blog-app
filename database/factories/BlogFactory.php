@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Blog;
+use App\Models\BlogCategories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,10 +18,12 @@ class BlogFactory extends Factory
      */
     public function definition()
     {
+        $category = BlogCategories::inRandomOrder()->first();
+
         return [
             'title' => $this->faker->name(),
             'author' => $this->faker->unique()->safeEmail(),
-            // 'category' => $this->faker->name(),
+            'category' => $category->category,
             'created_at' => now(),
             'body' => $this->faker->paragraph(),
             'likes' => $this->faker->randomDigit(),

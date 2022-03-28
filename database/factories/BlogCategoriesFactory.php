@@ -2,12 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Models\BlogCategories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class BlogCommentFactory extends Factory
+class BlogCategoriesFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +18,7 @@ class BlogCommentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'category' => $this->faker->colorName(),
         ];
     }
 }

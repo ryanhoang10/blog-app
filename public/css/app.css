@@ -11745,17 +11745,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     max-width: 1536px;
   }
 }
-.float-right {
-  float: right;
-}
-.my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-}
 .mt-0 {
   margin-top: 0px;
 }
@@ -11773,12 +11762,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .flex {
   display: flex;
-}
-.justify-end {
-  justify-content: flex-end;
-}
-.justify-center {
-  justify-content: center;
 }
 .justify-between {
   justify-content: space-between;

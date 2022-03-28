@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\BlogComments;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class BlogCategorySeeder extends Seeder
+class BlogCommentsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +15,7 @@ class BlogCategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        BlogComments::truncate();
+        \App\Models\BlogComments::factory(10)->create();
     }
 }

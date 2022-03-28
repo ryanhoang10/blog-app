@@ -2,12 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Models\Blog;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class BlogCategoryFactorFactory extends Factory
+class BlogCommentsFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,8 +17,11 @@ class BlogCategoryFactorFactory extends Factory
      */
     public function definition()
     {
+        $id = Blog::select('id')->inRandomOrder()->first();
         return [
-            //
+            'blog_id'   => $id,
+            'comments'  => $this->faker->paragraph(),
+            'user'      => $this->faker->name(),
         ];
     }
 }
