@@ -28286,37 +28286,33 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container" },
+    { staticClass: "grid grid-cols-3 gap-3" },
     _vm._l(_vm.blogs, function (item, blog) {
       return _c("div", { key: blog }, [
-        blog == 0
-          ? _c("div", { staticClass: "mt-4 border border-sky-500" }, [
-              _c("h3", { staticClass: "text-center text-lg" }, [
-                _vm._v(_vm._s(item.title)),
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c("h5", { staticClass: "text-center my-2" }, [
-                  _vm._v(_vm._s(item.category)),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "p-2" }, [_vm._v(_vm._s(item.body))]),
-                _vm._v(" "),
-                _c("div", { staticClass: "flex justify-end" }, [
-                  _c("p", { staticClass: "mr-2" }, [
-                    _c("b", [_vm._v("Written By:")]),
-                    _vm._v("  " + _vm._s(item.author)),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "flex justify-between m-2" }, [
-                  _c("p", [_vm._v(_vm._s(item.likes))]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(item.created_at))]),
-                ]),
-              ]),
-            ])
-          : _c("div", { staticClass: "grid grid-cols-4 gap-4" }),
+        _c("h3", { staticClass: "text-center text-lg" }, [
+          _vm._v(_vm._s(item.title)),
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("h5", { staticClass: "text-center my-2" }, [
+            _vm._v(_vm._s(item.category)),
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "p-2" }, [_vm._v(_vm._s(item.body))]),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex justify-end" }, [
+            _c("p", { staticClass: "mr-2" }, [
+              _c("b", [_vm._v("Written By:")]),
+              _vm._v("  " + _vm._s(item.author)),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex justify-between m-2" }, [
+            _c("p", [_vm._v(_vm._s(item.likes))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(item.created_at))]),
+          ]),
+        ]),
       ])
     }),
     0

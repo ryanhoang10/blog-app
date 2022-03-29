@@ -16,6 +16,6 @@ class BlogSeeder extends Seeder
     public function run()
     {
         Blog::truncate();
-        \App\Models\Blog::factory(10)->create();
+        \App\Models\Blog::factory(25)->create();
     }
 }
