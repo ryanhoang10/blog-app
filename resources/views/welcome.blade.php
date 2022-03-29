@@ -13,7 +13,7 @@
     </head>
     <body>
         <div id="app">
-            <site-header></site-header>
+            <site-header :categories='@json($blogCategories)'></site-header>
             <home :blogs='@json($blogs)'></home>
          </div>
     </body>

@@ -25,7 +25,7 @@ class BlogFactory extends Factory
             'author' => $this->faker->unique()->safeEmail(),
             'category' => $category->category,
             'created_at' => now(),
-            'body' => $this->faker->paragraph(),
+            'body' => $this->faker->paragraph(mt_rand(15, 20)),
             'likes' => $this->faker->randomDigit(),
         ];
     }
