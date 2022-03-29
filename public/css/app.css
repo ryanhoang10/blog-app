@@ -11776,23 +11776,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .grid {
   display: grid;
 }
-.grid-cols-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-.grid-cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .justify-end {
   justify-content: flex-end;
 }
 .justify-between {
   justify-content: space-between;
-}
-.gap-4 {
-  gap: 1rem;
 }
 .gap-3 {
   gap: 0.75rem;
@@ -11853,7 +11844,4 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-.filter {
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
