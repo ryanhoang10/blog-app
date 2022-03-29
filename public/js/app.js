@@ -5382,6 +5382,7 @@ __webpack_require__.r(__webpack_exports__);
     Search: _SearchBar__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: {
+    title: String,
     categories: Array
   }
 });
@@ -28670,7 +28671,7 @@ var render = function () {
           staticClass:
             "leading-tight text-5xl mt-0 mb-2 text-emerald-700 mb-2 text-center",
         },
-        [_vm._v("Welcome to The Blog Page")]
+        [_vm._v(_vm._s(_vm.title))]
       ),
       _vm._v(" "),
       _c("Search", { attrs: { categories: _vm.categories } }),

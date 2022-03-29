@@ -16,6 +16,13 @@ class BlogController extends Controller
         return view('welcome', compact('blogs', 'blogCategories'));
     }
 
+    public function create()
+    {
+        $blogCategories = BlogCategories::orderBy('category')->get();
+
+        return view('create', compact('blogCategories'));
+    }
+
     public function store(Request $request)
     {
     

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="leading-tight text-5xl mt-0 mb-2 text-emerald-700 mb-2 text-center">Welcome to The Blog Page</h1>
+        <h1 class="leading-tight text-5xl mt-0 mb-2 text-emerald-700 mb-2 text-center">{{ title }}</h1>
         <Search :categories=categories />
     </div>
 </template>
@@ -13,6 +13,7 @@ import Search from './SearchBar';
             Search
         },
         props: {
+            title: String,
             categories: Array
         }
     }
