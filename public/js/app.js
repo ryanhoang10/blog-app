@@ -28760,7 +28760,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "text-center" }, [
+  return _c("div", { staticClass: "text-center mb-3" }, [
     _c(
       "select",
       { staticClass: "px-2 py-1", attrs: { name: "Category" } },

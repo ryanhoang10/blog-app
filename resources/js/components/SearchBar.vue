@@ -1,6 +1,6 @@
 
 <template>
-   <div class="text-center">
+   <div class="text-center mb-3">
         <select name="Category" class="px-2 py-1">
             <option value="">Category</option>
             <option v-for="(category, index) in categories" :key="index" value="">{{ category.category }}</option>
