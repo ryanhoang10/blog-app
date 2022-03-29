@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="{{ mix('/js/app.js') }}"></script>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
 <body>
