@@ -24,8 +24,15 @@ class BlogController extends Controller
         return view('create', compact('blogCategories'));
     }
 
-    public function publish(Request $request)
+    public function store(Request $request)
     {
+        $this->validate(request(), [
+            'title'     => 'required',
+            'body'      => 'required',
+            'category'  => 'required',
+            'author'    => 'required',
+        ]);
+
         $newBlog = new Blog();
         $newBlog->title = $request->title;
         $newBlog->category = $request->category;
@@ -34,11 +41,8 @@ class BlogController extends Controller
         $newBlog->likes = 0;
         $newBlog->created_at = Carbon::now();
         $newBlog->save();
-    }
 
-    public function store(Request $request)
-    {
-    
+        return ['message' => 'Blog created.'];
     }
 
     public function delete(Request $request)

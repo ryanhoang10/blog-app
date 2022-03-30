@@ -9,12 +9,13 @@
 
 </head>
 <body>
+    <h3 class="leading-tight text-5xl mt-0 mb-2 text-emerald-700 mb-2 text-center">Create a Blog</h3>
     <div id="app">
-        @php
+        {{-- @php
             $text = 'Create a Blog';   
-        @endphp 
-        <site-header :categories='@json($blogCategories)' :title='@json($text)'></site-header>   
-        <create-blog> </create-blog>
+        @endphp  --}}
+        {{-- <site-header :categories='@json($blogCategories)' :title='@json($text)'></site-header>    --}}
+        <create-blog :categories='@json($blogCategories)'> </create-blog>
     </div>
 </body>
 </html>
