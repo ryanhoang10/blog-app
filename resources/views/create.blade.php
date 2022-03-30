@@ -14,6 +14,7 @@
             $text = 'Create a Blog';   
         @endphp 
         <site-header :categories='@json($blogCategories)' :title='@json($text)'></site-header>   
+        <create-blog> </create-blog>
     </div>
 </body>
 </html>

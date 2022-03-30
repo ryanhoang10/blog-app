@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\BlogCategories;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -21,6 +22,18 @@ class BlogController extends Controller
         $blogCategories = BlogCategories::orderBy('category')->get();
 
         return view('create', compact('blogCategories'));
+    }
+
+    public function publish(Request $request)
+    {
+        $newBlog = new Blog();
+        $newBlog->title = $request->title;
+        $newBlog->category = $request->category;
+        $newBlog->body = $request->body;
+        $newBlog->author = $request->author;
+        $newBlog->likes = 0;
+        $newBlog->created_at = Carbon::now();
+        $newBlog->save();
     }
 
     public function store(Request $request)
