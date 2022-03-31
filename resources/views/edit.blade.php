@@ -6,12 +6,11 @@
     <title>Document</title>
     <script src="{{ mix('/js/app.js') }}"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
 </head>
 <body>
-    <h3 class="leading-tight text-5xl mt-0 mb-2 text-emerald-700 mb-2 text-center">Create a Blog</h3>
+    <h3 class="leading-tight text-5xl mt-0 mb-2 text-emerald-700 mb-2 text-center">Edit This Blog</h3>
     <div id="app">
-        <create-blog :categories='@json($blogCategories)'> </create-blog>
+        <edit-blog :categories='@json($blogCategories)' :blog='@json($blog)'> </edit-blog>
     </div>
 </body>
 </html>

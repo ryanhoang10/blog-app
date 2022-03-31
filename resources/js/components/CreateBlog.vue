@@ -48,9 +48,12 @@ export default {
     },
     methods: {
         onSubmit() {
-            axios.post('store')
+
+
+            axios.post('store', this.form)
             .then((response) => {
-                console.log(response.data);
+                alert('Blog has been created!')
+                location.reload();
             })
             .catch((error) => {
                 console.log(error.data)

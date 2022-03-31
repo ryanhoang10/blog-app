@@ -49,6 +49,14 @@ class BlogController extends Controller
     {
     
     }
+
+    public function editPage(Request $request)
+    {
+        $blog = Blog::where('id', $request->id)->get();
+        $blogCategories = BlogCategories::orderBy('category')->get();
+
+        return view('edit', compact('blog', 'blogCategories'));
+    }
     
     public function edit(Request $request)
     {

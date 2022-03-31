@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BlogController::class, 'index'])->name('blog-home');
 Route::get('/create', [BlogController::class, 'create'])->name('blog-create');
+ROute::get('/edit-{id}', [BlogController::class, 'editPage']);
 Route::post('/delete', [BlogController::class, 'delete'])->name('blog-delete');
 Route::post('/store', [BlogController::class, 'store'])->name('blog-store');
-Route::post('/edit', [BlogController::class, 'edit'])->name('blog-edit');
+Route::post('/edit-{id}', [BlogController::class, 'edit'])->name('blog-edit');

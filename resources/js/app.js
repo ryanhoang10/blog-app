@@ -23,6 +23,7 @@ window.Vue = require('vue').default;
 Vue.component('home', require('./components/Home.vue').default);
 Vue.component('site-header', require('./components/Header.vue').default);
 Vue.component('create-blog', require('./components/CreateBlog.vue').default);
+Vue.component('edit-blog', require('./components/EditBlog.vue').default);
 
 
 
