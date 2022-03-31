@@ -5368,6 +5368,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -5398,14 +5400,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {},
   data: function data() {
     return {
-      title: null,
-      category: null,
-      body: null,
-      author: null
+      form: {
+        title: null,
+        category: null,
+        body: null,
+        author: null
+      }
     };
   },
   props: {
@@ -5413,7 +5417,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     onSubmit: function onSubmit() {
-      alert('sub');
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('store').then(function (response) {
+        console.log(response.data);
+      })["catch"](function (error) {
+        console.log(error.data);
+      });
     }
   }
 });
@@ -28814,40 +28822,81 @@ var render = function () {
       },
       [
         _c("div", { staticClass: "mb-4" }, [
-          _c("label", { attrs: { for: "title" } }, [_vm._v("Title:")]),
+          _c(
+            "label",
+            {
+              staticClass:
+                "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400",
+              attrs: { for: "title" },
+            },
+            [_vm._v("Title:")]
+          ),
           _vm._v(" "),
           _c("input", {
             directives: [
               {
                 name: "model",
                 rawName: "v-model",
-                value: this.title,
-                expression: "this.title",
+                value: _vm.form.title,
+                expression: "form.title",
               },
             ],
             staticClass:
               "mr-1 appearance-none border rounded py-1 px-3 text-gray-700",
             attrs: { type: "text", id: "title" },
-            domProps: { value: this.title },
+            domProps: { value: _vm.form.title },
             on: {
               input: function ($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(this, "title", $event.target.value)
+                _vm.$set(_vm.form, "title", $event.target.value)
               },
             },
           }),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "mb-4" }, [
-          _c("label", { attrs: { for: "category" } }, [_vm._v("Category: ")]),
+          _c(
+            "label",
+            {
+              staticClass:
+                "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400",
+              attrs: { for: "category" },
+            },
+            [_vm._v("Category: ")]
+          ),
           _vm._v(" "),
           _c(
             "select",
             {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.category,
+                  expression: "form.category",
+                },
+              ],
               staticClass: "border rounded py-1 px-2",
               attrs: { id: "category" },
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.form,
+                    "category",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                },
+              },
             },
             [
               _c("option", { attrs: { value: "" } }, [_vm._v("Category")]),
@@ -28862,9 +28911,15 @@ var render = function () {
           ),
         ]),
         _vm._v(" "),
-        _c("label", { staticClass: "mb-2", attrs: { for: "body" } }, [
-          _vm._v("Body:"),
-        ]),
+        _c(
+          "label",
+          {
+            staticClass:
+              "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400",
+            attrs: { for: "body" },
+          },
+          [_vm._v("Body:")]
+        ),
         _vm._v(" "),
         _c("div", { staticClass: "mb-4" }, [
           _c("textarea", {
@@ -28872,46 +28927,54 @@ var render = function () {
               {
                 name: "model",
                 rawName: "v-model",
-                value: this.body,
-                expression: "this.body",
+                value: _vm.form.body,
+                expression: "form.body",
               },
             ],
             staticClass: "shadow appearance-none border",
             attrs: { cols: "50", rows: "10" },
-            domProps: { value: this.body },
+            domProps: { value: _vm.form.body },
             on: {
               input: function ($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(this, "body", $event.target.value)
+                _vm.$set(_vm.form, "body", $event.target.value)
               },
             },
           }),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "mb-4" }, [
-          _c("label", { attrs: { for: "author" } }, [_vm._v("Author:")]),
+          _c(
+            "label",
+            {
+              staticClass:
+                "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400",
+              attrs: { for: "author" },
+            },
+            [_vm._v("Author:")]
+          ),
           _vm._v(" "),
           _c("input", {
             directives: [
               {
                 name: "model",
                 rawName: "v-model",
-                value: this.author,
-                expression: "this.author",
+                value: _vm.form.author,
+                expression: "form.author",
               },
             ],
             staticClass:
               "mr-1 appearance-none border rounded py-1 px-3 text-gray-700",
             attrs: { type: "text" },
-            domProps: { value: this.author },
+            domProps: { value: _vm.form.author },
             on: {
               input: function ($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(this, "author", $event.target.value)
+                _vm.$set(_vm.form, "author", $event.target.value)
               },
             },
           }),
