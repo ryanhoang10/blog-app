@@ -11,7 +11,7 @@ class BlogComments extends Model
 
     protected $table = 'blog_comments';
 
-    public function blog()
+    public function blogs()
     {
         return $this->belongsTo(Blog::class);
     }
