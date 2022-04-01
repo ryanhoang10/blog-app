@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\BlogCategories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

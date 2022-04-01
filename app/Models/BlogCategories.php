@@ -11,6 +11,8 @@ class BlogCategories extends Model
 
     protected $table = 'blog_categories';
 
+    public $timestamps = false;
+
     public function blogs()
     {
         return $this->belongsTo(Blog::class);

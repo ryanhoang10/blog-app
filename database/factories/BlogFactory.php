@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Blog;
 use App\Models\BlogCategories;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,7 +21,10 @@ class BlogFactory extends Factory
     {
         return [
             'title' => $this->faker->name(),
-            'author' => $this->faker->unique()->safeEmail(),
+            'author' => $this->faker->name(),
+            'user' => function() {
+                return User::factory(1)->create()[0]->email;
+            },
             'category' => function() {
                 return BlogCategories::factory(1)->create()[0]->category;
             },
