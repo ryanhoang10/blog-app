@@ -5470,19 +5470,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mounted: function mounted() {
+    console.log(this.blog[0]);
+  },
   data: function data() {
     return {
       form: {
-        title: null,
-        category: null,
-        body: null,
-        author: null
+        title: this.blog[0].title,
+        category: this.blog[0].category,
+        body: this.blog[0].body,
+        author: this.blog[0].author
       }
     };
   },
   props: {
     categories: Array,
     blog: Array
+  },
+  methods: {
+    onSubmit: function onSubmit() {
+      alert('testing');
+    }
   }
 });
 

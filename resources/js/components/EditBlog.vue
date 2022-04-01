@@ -29,19 +29,27 @@
 
 <script>
 export default {
+    mounted() {
+        console.log(this.blog[0])
+    },
     data() {
         return {
             form: {
-                title: null,
-                category: null,
-                body: null,
-                author: null,
+                title: this.blog[0].title,
+                category: this.blog[0].category,
+                body: this.blog[0].body,
+                author: this.blog[0].author,
             }
         }
     },
     props: {
         categories: Array,
         blog: Array,
+    }, 
+    methods: {
+        onSubmit: function() {
+            alert('testing')
+        }
     }
 }
 </script>

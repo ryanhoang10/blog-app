@@ -60,6 +60,15 @@ class BlogController extends Controller
     
     public function edit(Request $request)
     {
-    
+        $blog = Blog::where('id', $request->id)->get();
+
+        $blog->title = $request->title;
+        $blog->author = $request->author;
+        $blog->body = $request->body;
+        $blog->category = $request->category;
+
+        $blog->save();
+
+        return ['message' => 'Blog has been edited'];
     }
 }
