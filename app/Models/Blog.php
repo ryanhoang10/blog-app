@@ -22,4 +22,9 @@ class Blog extends Model
     {
         return $this->hasMany(BlogComments::class);
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tags::class);
+    }
 }
