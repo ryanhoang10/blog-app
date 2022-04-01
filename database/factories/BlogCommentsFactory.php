@@ -17,9 +17,10 @@ class BlogCommentsFactory extends Factory
      */
     public function definition()
     {
-        $id = Blog::select('id')->inRandomOrder()->first();
         return [
-            'blog_id'   => $id,
+            'blog_id'   => function() {
+                return Blog::factory(1)->create()[0]->id;
+            },
             'comments'  => $this->faker->paragraph(),
             'user'      => $this->faker->name(),
         ];
