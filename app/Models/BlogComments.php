@@ -10,4 +10,9 @@ class BlogComments extends Model
     use HasFactory;
 
     protected $table = 'blog_comments';
+
+    public function blog()
+    {
+        return $this->belongsTo(Blog::class);
+    }
 }
