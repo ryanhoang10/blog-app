@@ -5444,7 +5444,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      form: {
+        title: null,
+        category: null,
+        body: null,
+        author: null
+      }
+    };
+  },
   props: {
     categories: Array,
     blog: Array
@@ -29122,9 +29157,202 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", [
+    _c(
+      "form",
+      {
+        staticClass:
+          "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 text-center",
+        attrs: { action: "post" },
+        on: {
+          submit: function ($event) {
+            $event.preventDefault()
+            return _vm.onSubmit.apply(null, arguments)
+          },
+        },
+      },
+      [
+        _c("div", { staticClass: "mb-4" }, [
+          _c(
+            "label",
+            {
+              staticClass:
+                "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400",
+              attrs: { for: "title" },
+            },
+            [_vm._v("Title:")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.title,
+                expression: "form.title",
+              },
+            ],
+            staticClass:
+              "mr-1 appearance-none border rounded py-1 px-3 text-gray-700",
+            attrs: { type: "text", id: "title" },
+            domProps: { value: _vm.form.title },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form, "title", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mb-4" }, [
+          _c(
+            "label",
+            {
+              staticClass:
+                "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400",
+              attrs: { for: "category" },
+            },
+            [_vm._v("Category: ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.category,
+                  expression: "form.category",
+                },
+              ],
+              staticClass: "border rounded py-1 px-2",
+              attrs: { id: "category" },
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.form,
+                    "category",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                },
+              },
+            },
+            [
+              _c("option", { attrs: { value: "" } }, [_vm._v("Category")]),
+              _vm._v(" "),
+              _vm._l(_vm.categories, function (category) {
+                return _c("option", { key: category.id }, [
+                  _vm._v(_vm._s(category.category)),
+                ])
+              }),
+            ],
+            2
+          ),
+        ]),
+        _vm._v(" "),
+        _c(
+          "label",
+          {
+            staticClass:
+              "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400",
+            attrs: { for: "body" },
+          },
+          [_vm._v("Body:")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "mb-4" }, [
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.body,
+                expression: "form.body",
+              },
+            ],
+            staticClass: "shadow appearance-none border",
+            attrs: { cols: "50", rows: "10" },
+            domProps: { value: _vm.form.body },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form, "body", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mb-4" }, [
+          _c(
+            "label",
+            {
+              staticClass:
+                "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400",
+              attrs: { for: "author" },
+            },
+            [_vm._v("Author:")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.author,
+                expression: "form.author",
+              },
+            ],
+            staticClass:
+              "mr-1 appearance-none border rounded py-1 px-3 text-gray-700",
+            attrs: { type: "text" },
+            domProps: { value: _vm.form.author },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form, "author", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _vm._m(0),
+      ]
+    ),
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "button",
+        {
+          staticClass:
+            "shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded",
+        },
+        [_vm._v("Create")]
+      ),
+    ])
+  },
+]
 render._withStripped = true
 
 
