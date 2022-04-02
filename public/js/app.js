@@ -5577,12 +5577,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     console.log('ello mounted.');
   },
   props: {
     blogs: Array
+  },
+  methods: {
+    goToBlogPage: function goToBlogPage(id) {
+      window.location.href = "/blog-" + id;
+    }
   }
 });
 
@@ -29541,32 +29548,46 @@ var render = function () {
     { staticClass: "grid grid-cols-3 gap-3" },
     _vm._l(_vm.blogs, function (item, blog) {
       return _c("div", { key: blog }, [
-        _c("h3", { staticClass: "text-center text-lg" }, [
-          _vm._v(_vm._s(item.title)),
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("h5", { staticClass: "text-center my-2" }, [
-            _vm._v(_vm._s(item.category)),
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "p-2 truncate-line-clamp" }, [
-            _vm._v(_vm._s(item.body)),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "flex justify-end" }, [
-            _c("p", { staticClass: "mr-2" }, [
-              _c("b", [_vm._v("Written By:")]),
-              _vm._v("  " + _vm._s(item.author)),
+        _c(
+          "div",
+          {
+            staticClass:
+              "cursor-pointer outline-none hover:border-red-700 border-transparent border-2 hover:border-current",
+            on: {
+              click: function ($event) {
+                return _vm.goToBlogPage(item.id)
+              },
+            },
+          },
+          [
+            _c("h3", { staticClass: "text-center text-lg" }, [
+              _vm._v(_vm._s(item.title)),
             ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "flex justify-between m-2" }, [
-            _c("p", [_vm._v(_vm._s(item.likes))]),
             _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(item.created_at))]),
-          ]),
-        ]),
+            _c("div", [
+              _c("h5", { staticClass: "text-center my-2" }, [
+                _vm._v(_vm._s(item.category)),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "p-2 truncate-line-clamp" }, [
+                _vm._v(_vm._s(item.body)),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex justify-end" }, [
+                _c("p", { staticClass: "mr-2" }, [
+                  _c("b", [_vm._v("Written By:")]),
+                  _vm._v("  " + _vm._s(item.author)),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex justify-between m-2" }, [
+                _c("p", [_vm._v(_vm._s(item.likes))]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(item.created_at))]),
+              ]),
+            ]),
+          ]
+        ),
       ])
     }),
     0

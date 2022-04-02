@@ -10,6 +10,7 @@
 <template>
     <div class="grid grid-cols-3 gap-3">
         <div v-for="(item, blog) in blogs" :key="blog">
+            <div v-on:click="goToBlogPage(item.id)" class="cursor-pointer outline-none hover:border-red-700 border-transparent border-2 hover:border-current">
                 <h3 class="text-center text-lg">{{ item.title }}</h3>
                 <div>
                     <h5 class="text-center my-2">{{ item.category }}</h5>
@@ -21,7 +22,8 @@
                         <p>{{ item.likes }}</p>
                         <p>{{ item.created_at }}</p>    
                     </div>
-                </div>      
+                </div>    
+            </div>
         </div>
     </div>
 </template>
@@ -33,6 +35,11 @@
         },
         props: {
             blogs: Array
+        },
+        methods: {
+            goToBlogPage: function(id) {
+                window.location.href = "/blog-" + id;
+            }
         }
     }
 </script>
