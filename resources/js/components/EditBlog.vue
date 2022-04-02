@@ -21,22 +21,25 @@
             <input type="text" v-model="form.author" class="mr-1 appearance-none border rounded py-1 px-3 text-gray-700">
         </div>
         <div>
-            <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">Create</button>
+            <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">Edit</button>
         </div>
     </form>   
 </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     mounted() {
-        console.log(this.blog[0])
+        console.log(this.blog[0].id)
     },
     data() {
         return {
             form: {
                 title: this.blog[0].title,
                 category: this.blog[0].category,
+                user: null,
                 body: this.blog[0].body,
                 author: this.blog[0].author,
             }
@@ -48,7 +51,15 @@ export default {
     }, 
     methods: {
         onSubmit: function() {
-            alert('testing')
+            // console.log(this.blog[0].id, ' u work?')
+            axios.post('edit-'+this.blog[0].id, this.form)
+                .then((response) => {
+                    console.log(response.data, " ,-- here")
+                    // location.reload();
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
         }
     }
 }

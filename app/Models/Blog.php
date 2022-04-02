@@ -13,6 +13,14 @@ class Blog extends Model
     
     public $timestamps = false;
 
+    protected $fillable = [
+        'title',
+        'body',
+        'user',
+        'category',
+        'author'
+    ];
+
     public function category()
     {
         return $this->hasOne(BlogCategories::class);

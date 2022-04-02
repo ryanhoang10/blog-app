@@ -37,12 +37,21 @@ class BlogController extends Controller
         $newBlog->title = $request->title;
         $newBlog->category = $request->category;
         $newBlog->body = $request->body;
+        $newBlog->user = null;
         $newBlog->author = $request->author;
         $newBlog->likes = 0;
         $newBlog->created_at = Carbon::now();
         $newBlog->save();
 
+
         return ['message' => 'Blog created.'];
+    }
+
+    public function show(Request $request)
+    {
+        $blog = Blog::where('id', $request->id)->get();
+
+        return view('show', compact('blog'));
     }
 
     public function delete(Request $request)
