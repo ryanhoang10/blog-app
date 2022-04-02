@@ -36,7 +36,7 @@ export default {
         return {
             form: {
                 title: null,
-                user: null,
+                user: 'dummy@user.com',
                 category: null,
                 body: null,
                 author: null,     
@@ -49,14 +49,13 @@ export default {
     },
     methods: {
         onSubmit() {
-            axios.post('store', this.form)
+            axios.post('/store', this.form)
             .then((response) => {
-                console.log(response.data, " ,-- here is the response")
-                // alert('Blog has been created!')
-                // location.reload();
+                alert('Blog has been created!')
+                location.reload();
             })
             .catch((error) => {
-                console.log(error.data)
+                console.log(error.response)
             })
         }
     }

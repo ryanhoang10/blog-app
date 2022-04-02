@@ -37,12 +37,11 @@ class BlogController extends Controller
         $newBlog->title = $request->title;
         $newBlog->category = $request->category;
         $newBlog->body = $request->body;
-        $newBlog->user = null;
+        $newBlog->user = $request->user;
         $newBlog->author = $request->author;
         $newBlog->likes = 0;
         $newBlog->created_at = Carbon::now();
         $newBlog->save();
-
 
         return ['message' => 'Blog created.'];
     }
@@ -69,7 +68,7 @@ class BlogController extends Controller
     
     public function edit(Request $request)
     {
-        $blog = Blog::where('id', $request->id)->get();
+        $blog = Blog::where('id', $request->id)->first();
 
         $blog->title = $request->title;
         $blog->author = $request->author;

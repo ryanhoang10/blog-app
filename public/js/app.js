@@ -5406,7 +5406,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: {
         title: null,
-        user: null,
+        user: 'dummy@user.com',
         category: null,
         body: null,
         author: null
@@ -5418,11 +5418,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     onSubmit: function onSubmit() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('store', this.form).then(function (response) {
-        console.log(response.data, " ,-- here is the response"); // alert('Blog has been created!')
-        // location.reload();
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/store', this.form).then(function (response) {
+        alert('Blog has been created!');
+        location.reload();
       })["catch"](function (error) {
-        console.log(error.data);
+        console.log(error.response);
       });
     }
   }
@@ -5482,7 +5482,6 @@ __webpack_require__.r(__webpack_exports__);
       form: {
         title: this.blog[0].title,
         category: this.blog[0].category,
-        user: null,
         body: this.blog[0].body,
         author: this.blog[0].author
       }
@@ -5494,9 +5493,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     onSubmit: function onSubmit() {
-      // console.log(this.blog[0].id, ' u work?')
       axios__WEBPACK_IMPORTED_MODULE_0___default().post('edit-' + this.blog[0].id, this.form).then(function (response) {
-        console.log(response.data, " ,-- here"); // location.reload();
+        console.log(response.data, " ,-- here");
+        location.reload();
       })["catch"](function (error) {
         console.log(error);
       });

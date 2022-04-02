@@ -39,7 +39,6 @@ export default {
             form: {
                 title: this.blog[0].title,
                 category: this.blog[0].category,
-                user: null,
                 body: this.blog[0].body,
                 author: this.blog[0].author,
             }
@@ -51,11 +50,10 @@ export default {
     }, 
     methods: {
         onSubmit: function() {
-            // console.log(this.blog[0].id, ' u work?')
             axios.post('edit-'+this.blog[0].id, this.form)
                 .then((response) => {
                     console.log(response.data, " ,-- here")
-                    // location.reload();
+                    location.reload();
                 })
                 .catch((error) => {
                     console.log(error)
