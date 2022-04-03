@@ -5618,6 +5618,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   methods: {
     login: function login() {
@@ -5639,6 +5645,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -29932,11 +29946,12 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "p-2" }, [
-    _c("h3", [_vm._v("Login")]),
+    _c("h3", { staticClass: "text-center mb-4" }, [_vm._v("Login")]),
     _vm._v(" "),
     _c(
       "form",
       {
+        staticClass: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4",
         attrs: { action: "post" },
         on: {
           submit: function ($event) {
@@ -29945,21 +29960,47 @@ var render = function () {
           },
         },
       },
-      [
-        _c("label", { attrs: { for: "email" } }, [_vm._v("Email:")]),
-        _vm._v(" "),
-        _c("input", { attrs: { type: "text", id: "login-email" } }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "password" } }, [_vm._v("Password:")]),
-        _vm._v(" "),
-        _c("input", { attrs: { type: "text", id: "login-password" } }),
-        _vm._v(" "),
-        _c("button", [_vm._v("Login")]),
-      ]
+      [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]
     ),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mb-4" }, [
+      _c("label", { attrs: { for: "email" } }, [_vm._v("Email:")]),
+      _vm._v(" "),
+      _c("input", { attrs: { type: "text", id: "login-email" } }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mb-4" }, [
+      _c("label", { attrs: { for: "password" } }, [_vm._v("Password:")]),
+      _vm._v(" "),
+      _c("input", { attrs: { type: "password", id: "login-password" } }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c(
+        "button",
+        {
+          staticClass:
+            "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded",
+        },
+        [_vm._v("Login")]
+      ),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -29983,11 +30024,12 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "p-2" }, [
-    _c("h3", [_vm._v("Register")]),
+    _c("h3", { staticClass: "text-center mb-4" }, [_vm._v("Register")]),
     _vm._v(" "),
     _c(
       "form",
       {
+        staticClass: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4",
         attrs: { action: "post" },
         on: {
           submit: function ($event) {
@@ -29997,28 +30039,68 @@ var render = function () {
         },
       },
       [
-        _c("label", { attrs: { for: "email" } }, [_vm._v("Email:")]),
+        _vm._m(0),
         _vm._v(" "),
-        _c("input", { attrs: { type: "text", id: "register-email" } }),
+        _vm._m(1),
         _vm._v(" "),
-        _c("label", { attrs: { for: "password" } }, [_vm._v("Password:")]),
+        _vm._m(2),
         _vm._v(" "),
-        _c("input", { attrs: { type: "text", id: "register-password" } }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "confirm-password" } }, [
-          _vm._v("Confirm Password:"),
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "text", id: "register-confirm-password" },
-        }),
-        _vm._v(" "),
-        _c("button", [_vm._v("Register")]),
+        _vm._m(3),
       ]
     ),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mb-4" }, [
+      _c("label", { attrs: { for: "email" } }, [_vm._v("Email:")]),
+      _vm._v(" "),
+      _c("input", { attrs: { type: "text", id: "register-email" } }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mb-4" }, [
+      _c("label", { attrs: { for: "password" } }, [_vm._v("Password:")]),
+      _vm._v(" "),
+      _c("input", { attrs: { type: "password", id: "register-password" } }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mb-4" }, [
+      _c("label", { attrs: { for: "confirm-password" } }, [
+        _vm._v("Confirm Password:"),
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "password", id: "register-confirm-password" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c(
+        "button",
+        {
+          staticClass:
+            "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded",
+        },
+        [_vm._v("Register")]
+      ),
+    ])
+  },
+]
 render._withStripped = true
 
 
