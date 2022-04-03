@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,10 @@ ROute::get('/edit-{id}', [BlogController::class, 'editPage']);
 Route::post('/delete', [BlogController::class, 'delete'])->name('blog-delete');
 Route::post('/store', [BlogController::class, 'store'])->name('blog-store');
 Route::post('/edit-{id}', [BlogController::class, 'edit'])->name('blog-edit');
+
+Route::prefix('user')->group(function() {
+    Route::post('/store', [UserController::class, 'store'])->name('register-user');
+    Route::post('/edit', [UserController::class, 'edit'])->name('edit-user');
+    Route::post('/login', [UserController::class, 'login'])->name('login-user');
+    Route::get('/login', [UserController::class, 'loginPage'])->name('user-page');
+});

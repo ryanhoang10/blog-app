@@ -25,7 +25,7 @@ Vue.component('site-header', require('./components/Header.vue').default);
 Vue.component('create-blog', require('./components/CreateBlog.vue').default);
 Vue.component('edit-blog', require('./components/EditBlog.vue').default);
 Vue.component('show-blog', require('./components/ShowBlade.vue').default);
-
+Vue.component('user-page', require('./components/User.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -11814,12 +11814,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-solid {
   border-style: solid;
 }
+.border-transparent {
+  border-color: transparent;
+}
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
-}
-.border-transparent {
-  border-color: transparent;
 }
 .bg-white {
   --tw-bg-opacity: 1;
@@ -11923,20 +11923,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
-.hover\:border-emerald-300:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(110 231 183 / var(--tw-border-opacity));
-}
-.hover\:border-current:hover {
-  border-color: currentColor;
-}
-.hover\:border-gray-700:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(55 65 81 / var(--tw-border-opacity));
-}
 .hover\:border-red-700:hover {
   --tw-border-opacity: 1;
   border-color: rgb(185 28 28 / var(--tw-border-opacity));
+}
+.hover\:border-current:hover {
+  border-color: currentColor;
 }
 .hover\:bg-purple-400:hover {
   --tw-bg-opacity: 1;
