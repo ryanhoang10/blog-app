@@ -27,11 +27,15 @@ class UserController extends Controller
 
         $user = User::where('email', $request->user)->first();
 
-        if (Hash::check($request->password, $user->password)) {
-            echo 'pass';
+        if(! $user) {
+            return response()->json(['success'=>false, 'message' => 'Login Fail, please check email id']);
         }
 
-        echo 'fail'; 
+        if (Hash::check($request->password, $user->password)) {
+            return response()->json(['success'=>true,'message'=>'success', 'data' => $user]);
+        }
+
+        return response()->json(['success'=>false, 'message' => 'Login Fail, please check password']);
     }
 
     public function loginPage()
