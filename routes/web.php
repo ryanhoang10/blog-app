@@ -30,4 +30,5 @@ Route::prefix('user')->group(function() {
     Route::post('/login', [UserController::class, 'login'])->name('login-user');
     Route::post('/logout', [UserController::class, 'logout'])->name('logout-user');
     Route::get('/login', [UserController::class, 'loginPage'])->name('user-page');
+    Route::get('/account', [UserController::class, 'account'])->name('user-account');
 });

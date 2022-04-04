@@ -22,6 +22,11 @@ class UserController extends Controller
     {
     
     }
+
+    public function account()
+    {
+        
+    }
     
     public function login(Request $request)
     {
