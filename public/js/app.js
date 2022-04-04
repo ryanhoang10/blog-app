@@ -5516,22 +5516,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _SearchBar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchBar */ "./resources/js/components/SearchBar.vue");
 //
 //
 //
 //
 //
 //
-//
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  components: {
-    Search: _SearchBar__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
   props: {
-    title: String,
-    categories: Array
+    title: String
+  },
+  methods: {
+    returnToHome: function returnToHome() {
+      window.location = "/";
+    }
   }
 });
 
@@ -5639,7 +5637,11 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     login: function login() {
       axios__WEBPACK_IMPORTED_MODULE_0___default().post('/user/login', this.form).then(function (response) {
-        console.log(response.data, " <-- hey");
+        if (response.data.success == true) {
+          window.location = '/';
+        } else {
+          alert(response.data.message);
+        }
       })["catch"](function (error) {
         console.log(error);
       });
@@ -5814,6 +5816,7 @@ Vue.component('create-blog', (__webpack_require__(/*! ./components/CreateBlog.vu
 Vue.component('edit-blog', (__webpack_require__(/*! ./components/EditBlog.vue */ "./resources/js/components/EditBlog.vue")["default"]));
 Vue.component('show-blog', (__webpack_require__(/*! ./components/ShowBlade.vue */ "./resources/js/components/ShowBlade.vue")["default"]));
 Vue.component('user-page', (__webpack_require__(/*! ./components/User.vue */ "./resources/js/components/User.vue")["default"]));
+Vue.component('searchbar', (__webpack_require__(/*! ./components/SearchBar.vue */ "./resources/js/components/SearchBar.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -29847,22 +29850,17 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "h1",
-        {
-          staticClass:
-            "leading-tight text-5xl mt-0 mb-2 text-emerald-700 mb-2 text-center",
-        },
-        [_vm._v(_vm._s(_vm.title))]
-      ),
-      _vm._v(" "),
-      _c("Search", { attrs: { categories: _vm.categories } }),
-    ],
-    1
-  )
+  return _c("div", [
+    _c(
+      "h1",
+      {
+        staticClass:
+          "leading-tight text-5xl mt-0 mb-2 text-emerald-700 mb-2 text-center cursor-pointer",
+        on: { click: _vm.returnToHome },
+      },
+      [_vm._v(_vm._s(_vm.title))]
+    ),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

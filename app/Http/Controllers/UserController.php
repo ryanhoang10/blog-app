@@ -18,6 +18,11 @@ class UserController extends Controller
     
     }
 
+    public function logout(Request $request)
+    {
+    
+    }
+    
     public function login(Request $request)
     {
         $this->validate(request(), [
@@ -32,6 +37,8 @@ class UserController extends Controller
         }
 
         if (Hash::check($request->password, $user->password)) {
+            session()->put('user', $user->email);
+            session()->put('name', $user->name);
             return response()->json(['success'=>true,'message'=>'success', 'data' => $user]);
         }
 

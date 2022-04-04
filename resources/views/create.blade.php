@@ -1,7 +1,10 @@
 @extends('components.layout')
 
 @section('content')
-    <h3 class="leading-tight text-5xl mt-0 mb-2 text-emerald-700 mb-2 text-center">Create a Blog</h3>
+    @php
+        $text = 'Create a Blog';   
+    @endphp
+    <site-header :title='@json($text)'></site-header>
     <div id="app">
         <create-blog :categories='@json($blogCategories)'> </create-blog>
     </div>

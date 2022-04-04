@@ -33,7 +33,11 @@ export default {
         login: function() {
             axios.post('/user/login', this.form)
                 .then((response) => {
-                    console.log(response.data, " <-- hey")
+                    if(response.data.success == true) {
+                        window.location = '/';
+                    } else {
+                        alert(response.data.message);
+                    }
                 })
                 .catch((error) => {
                     console.log(error)

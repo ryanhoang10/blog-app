@@ -1,8 +1,9 @@
 @extends('components.layout')
 
 @section('content')
-<div id="app">
-
-</div>
+    @php
+        $text = 'Blog Page';   
+    @endphp
+    <site-header :title='@json($text)'></site-header>
     <show-blog :blog='@json($blog)'></show-blog>
 @endsection
