@@ -5516,19 +5516,42 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    title: String
+    title: String,
+    user: String
   },
   methods: {
     returnToHome: function returnToHome() {
       window.location = "/";
+    },
+    logout: function logout() {
+      console.log('hello');
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/user/logout').then(function (response) {
+        alert(response.data.message);
+        location.reload();
+      })["catch"](function (error) {
+        console.log(failed);
+      });
+    },
+    login: function login() {
+      window.location = '/user/login';
     }
   }
 });
@@ -29851,6 +29874,26 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    this.user != ""
+      ? _c("div", { staticClass: "flex justify-end" }, [
+          _c("div", { staticClass: "mr-4" }, [
+            _vm._v("hi " + _vm._s(this.user)),
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "mx-4 cursor-pointer", on: { click: _vm.logout } },
+            [_vm._v("Logout")]
+          ),
+        ])
+      : _c("div", { staticClass: "flex justify-end" }, [
+          _c(
+            "div",
+            { staticClass: "mx-4 cursor-pointer", on: { click: _vm.login } },
+            [_vm._v("Login")]
+          ),
+        ]),
+    _vm._v(" "),
     _c(
       "h1",
       {

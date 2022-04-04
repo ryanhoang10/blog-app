@@ -20,12 +20,14 @@ class UserController extends Controller
 
     public function logout(Request $request)
     {
-    
+        session()->flush();
+
+        return response()->json(['success' => true, 'message' => 'You have logged out.']);
     }
 
     public function account()
     {
-        
+
     }
     
     public function login(Request $request)

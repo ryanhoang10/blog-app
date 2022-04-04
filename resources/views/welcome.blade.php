@@ -1,13 +1,13 @@
 @extends('components.layout')
 
 @section('content')
-    @if (! empty(session('user')))
-        hi {{ session('user') }}
-    @endif
     @php
+        $user_name = (! empty(session('user'))) ? session('name') : '';
+
         $text = 'Welcome to the Blog page';   
     @endphp
-    <site-header :title='@json($text)'></site-header>
+
+    <site-header :title='@json($text)' :user='@json($user_name)'></site-header>
     <searchbar :categories='@json($blogCategories)'></searchbar>
     <home :blogs='@json($blogs)'></home>
 @endsection
