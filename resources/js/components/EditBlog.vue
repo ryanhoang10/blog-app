@@ -52,11 +52,11 @@ export default {
         onSubmit: function() {
             axios.post('edit-'+this.blog[0].id, this.form)
                 .then((response) => {
-                    console.log(response.data, " ,-- here")
+                    alert(response.data.message);
                     location.reload();
                 })
                 .catch((error) => {
-                    console.log(error)
+                    console.log(error);
                 })
         }
     }

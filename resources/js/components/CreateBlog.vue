@@ -51,7 +51,7 @@ export default {
         onSubmit() {
             axios.post('/store', this.form)
             .then((response) => {
-                alert('Blog has been created!')
+                alert(response.data.message);
                 location.reload();
             })
             .catch((error) => {
