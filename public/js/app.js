@@ -5600,6 +5600,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  filters: {
+    removeTimeFromDate: function removeTimeFromDate(date) {
+      return date.slice(0, -9);
+    }
+  },
   mounted: function mounted() {
     console.log('ello mounted.');
   },
@@ -30008,7 +30013,9 @@ var render = function () {
               _c("div", { staticClass: "flex justify-between m-2" }, [
                 _c("p", [_vm._v(_vm._s(item.likes))]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(item.created_at))]),
+                _c("p", [
+                  _vm._v(_vm._s(_vm._f("removeTimeFromDate")(item.created_at))),
+                ]),
               ]),
             ]),
           ]

@@ -20,7 +20,7 @@
                     </div>
                     <div class="flex justify-between m-2">
                         <p>{{ item.likes }}</p>
-                        <p>{{ item.created_at }}</p>    
+                        <p>{{ item.created_at | removeTimeFromDate }}</p>    
                     </div>
                 </div>    
             </div>
@@ -30,6 +30,12 @@
 
 <script>
     export default {
+        filters: {
+            removeTimeFromDate: function(date) {
+                return date.slice(0, -9)
+
+            }
+        },
         mounted() {
             console.log('ello mounted.')
         },
