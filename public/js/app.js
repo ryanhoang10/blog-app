@@ -5419,7 +5419,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     onSubmit: function onSubmit() {
       axios__WEBPACK_IMPORTED_MODULE_0___default().post('/store', this.form).then(function (response) {
-        alert('Blog has been created!');
+        alert(response.data.message);
         location.reload();
       })["catch"](function (error) {
         console.log(error.response);
@@ -5494,7 +5494,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     onSubmit: function onSubmit() {
       axios__WEBPACK_IMPORTED_MODULE_0___default().post('edit-' + this.blog[0].id, this.form).then(function (response) {
-        console.log(response.data, " ,-- here");
+        alert(response.data.message);
         location.reload();
       })["catch"](function (error) {
         console.log(error);
@@ -5685,6 +5685,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -5708,9 +5710,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      formErrors: [],
+      form: {
+        registerEmail: null,
+        registerPassword: null,
+        registerConfirmPassword: null,
+        passwordMatch: false,
+        passwordLength: false
+      }
+    };
+  },
   methods: {
-    register: function register() {}
+    register: function register() {
+      if (this.form.passwordMatch && this.form.passwordLength) console.log('hello'); // axios.post('/user/register', this.form)
+    },
+    validatePasswordLength: function validatePasswordLength() {
+      if (this.form.registerPassword.length >= 8) this.form.passwordLength = true;else console.log('password too short'); // else return this.formErrors = 'Password length is shorter than 8 characters.';
+    },
+    validatePasswordMatch: function validatePasswordMatch() {
+      if (this.form.registerPassword === this.form.registerConfirmPassword) this.form.passwordMatch = true;else console.log('password do not match'); // else return this.formErrors = 'Passwords do not match.';
+      // console.log(this.form.registerPassword, this.form.registerConfirmPassword)
+    }
   }
 });
 
@@ -30127,52 +30151,95 @@ var render = function () {
         },
       },
       [
+        _c("div", { staticClass: "mb-4" }, [
+          _c("label", { attrs: { for: "email" } }, [_vm._v("Email:")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.registerEmail,
+                expression: "form.registerEmail",
+              },
+            ],
+            attrs: { type: "text", id: "register-email" },
+            domProps: { value: _vm.form.registerEmail },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form, "registerEmail", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mb-4" }, [
+          _c("label", { attrs: { for: "password" } }, [_vm._v("Password:")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.registerPassword,
+                expression: "form.registerPassword",
+              },
+            ],
+            attrs: { type: "password", id: "register-password" },
+            domProps: { value: _vm.form.registerPassword },
+            on: {
+              blur: _vm.validatePasswordLength,
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form, "registerPassword", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mb-4" }, [
+          _c("label", { attrs: { for: "confirm-password" } }, [
+            _vm._v("Confirm Password:"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.registerConfirmPassword,
+                expression: "form.registerConfirmPassword",
+              },
+            ],
+            attrs: { type: "password", id: "register-confirm-password" },
+            domProps: { value: _vm.form.registerConfirmPassword },
+            on: {
+              blur: _vm.validatePasswordMatch,
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form,
+                  "registerConfirmPassword",
+                  $event.target.value
+                )
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
         _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _vm._m(3),
       ]
     ),
   ])
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mb-4" }, [
-      _c("label", { attrs: { for: "email" } }, [_vm._v("Email:")]),
-      _vm._v(" "),
-      _c("input", { attrs: { type: "text", id: "register-email" } }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mb-4" }, [
-      _c("label", { attrs: { for: "password" } }, [_vm._v("Password:")]),
-      _vm._v(" "),
-      _c("input", { attrs: { type: "password", id: "register-password" } }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mb-4" }, [
-      _c("label", { attrs: { for: "confirm-password" } }, [
-        _vm._v("Confirm Password:"),
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: { type: "password", id: "register-confirm-password" },
-      }),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
