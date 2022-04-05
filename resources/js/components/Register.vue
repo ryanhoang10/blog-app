@@ -3,6 +3,10 @@
         <h3 class="text-center mb-4">Register</h3>
         <form action="post" @submit.prevent="register" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <div class="mb-4">
+                <label for="name">Name:</label>
+                <input type="text" id="register-name" v-model="form.registerName">
+            </div>
+            <div class="mb-4">
                 <label for="email">Email:</label>
                 <input type="text" id="register-email" v-model="form.registerEmail">    
             </div>
@@ -12,7 +16,7 @@
             </div>
             <div class="mb-4">
                 <label for="confirm-password">Confirm Password:</label>
-                <input type="password" id="register-confirm-password" v-model="form.registerConfirmPassword" v-on:blur="validatePasswordMatch">    
+                <input type="password" id="register-confirm-password" v-model="registerConfirmPassword" v-on:blur="validatePasswordMatch">    
             </div>
             <div class="text-center">
                 <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Register</button>
@@ -28,10 +32,11 @@ export default {
     data() {
         return {
             formErrors: [],
+            registerConfirmPassword: null,
             form: {
+                registerName: null,
                 registerEmail: null,
                 registerPassword: null,
-                registerConfirmPassword: null,
                 passwordMatch: false,
                 passwordLength: false,
             }
@@ -39,9 +44,18 @@ export default {
     },
     methods: {
         register: function() {
-            if (this.form.passwordMatch && this.form.passwordLength)
+            if (this.form.passwordMatch && this.form.passwordLength) {
                 console.log('hello')
-            // axios.post('/user/register', this.form)
+                axios.post('/user/store', this.form)
+                    .then((response) => {
+                        alert(response.data.message);
+                        window.location = '/';
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    })
+
+            }
         },
         validatePasswordLength: function() {
             if (this.form.registerPassword.length >= 8) this.form.passwordLength = true;
@@ -49,7 +63,7 @@ export default {
             // else return this.formErrors = 'Password length is shorter than 8 characters.';
         },
         validatePasswordMatch: function() {
-            if (this.form.registerPassword === this.form.registerConfirmPassword) this.form.passwordMatch = true;
+            if (this.form.registerPassword === this.registerConfirmPassword) this.form.passwordMatch = true;
             else console.log('password do not match')
             // else return this.formErrors = 'Passwords do not match.';
             // console.log(this.form.registerPassword, this.form.registerConfirmPassword)

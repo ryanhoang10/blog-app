@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -10,7 +11,20 @@ class UserController extends Controller
 {
     public function store(Request $request)
     {
-    
+        $new_user = new User();
+
+        session()->put('user', $request->registerEmail);
+        session()->put('name', $request->registerName);
+
+        $new_user->email = $request->registerEmail;
+        $new_user->name = $request->registerName;
+        $new_user->password = Hash::make($request->registerPassword);
+        $new_user->email_verified_at = Carbon::now();
+        $new_user->created_at = Carbon::now();
+        $new_user->updated_at = Carbon::now();
+
+        $new_user->save();
+        return response()->json(['success' => true, 'message' => 'Account has been registered!']);
     }
 
     public function edit(Request $request)

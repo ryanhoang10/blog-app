@@ -5710,15 +5710,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       formErrors: [],
+      registerConfirmPassword: null,
       form: {
+        registerName: null,
         registerEmail: null,
         registerPassword: null,
-        registerConfirmPassword: null,
         passwordMatch: false,
         passwordLength: false
       }
@@ -5726,13 +5731,21 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     register: function register() {
-      if (this.form.passwordMatch && this.form.passwordLength) console.log('hello'); // axios.post('/user/register', this.form)
+      if (this.form.passwordMatch && this.form.passwordLength) {
+        console.log('hello');
+        axios__WEBPACK_IMPORTED_MODULE_0___default().post('/user/store', this.form).then(function (response) {
+          alert(response.data.message);
+          window.location = '/';
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      }
     },
     validatePasswordLength: function validatePasswordLength() {
       if (this.form.registerPassword.length >= 8) this.form.passwordLength = true;else console.log('password too short'); // else return this.formErrors = 'Password length is shorter than 8 characters.';
     },
     validatePasswordMatch: function validatePasswordMatch() {
-      if (this.form.registerPassword === this.form.registerConfirmPassword) this.form.passwordMatch = true;else console.log('password do not match'); // else return this.formErrors = 'Passwords do not match.';
+      if (this.form.registerPassword === this.registerConfirmPassword) this.form.passwordMatch = true;else console.log('password do not match'); // else return this.formErrors = 'Passwords do not match.';
       // console.log(this.form.registerPassword, this.form.registerConfirmPassword)
     }
   }
@@ -30152,6 +30165,31 @@ var render = function () {
       },
       [
         _c("div", { staticClass: "mb-4" }, [
+          _c("label", { attrs: { for: "name" } }, [_vm._v("Name:")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.registerName,
+                expression: "form.registerName",
+              },
+            ],
+            attrs: { type: "text", id: "register-name" },
+            domProps: { value: _vm.form.registerName },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form, "registerName", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mb-4" }, [
           _c("label", { attrs: { for: "email" } }, [_vm._v("Email:")]),
           _vm._v(" "),
           _c("input", {
@@ -30212,23 +30250,19 @@ var render = function () {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.form.registerConfirmPassword,
-                expression: "form.registerConfirmPassword",
+                value: _vm.registerConfirmPassword,
+                expression: "registerConfirmPassword",
               },
             ],
             attrs: { type: "password", id: "register-confirm-password" },
-            domProps: { value: _vm.form.registerConfirmPassword },
+            domProps: { value: _vm.registerConfirmPassword },
             on: {
               blur: _vm.validatePasswordMatch,
               input: function ($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(
-                  _vm.form,
-                  "registerConfirmPassword",
-                  $event.target.value
-                )
+                _vm.registerConfirmPassword = $event.target.value
               },
             },
           }),
