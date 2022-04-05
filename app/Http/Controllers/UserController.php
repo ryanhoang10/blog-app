@@ -11,6 +11,13 @@ class UserController extends Controller
 {
     public function store(Request $request)
     {
+
+        $current_user = User::where('email', $request->registerEmail);
+
+        if ($current_user) {
+            return response()->json(['success' => false, 'message' => 'Email has already been registered.']);
+        }
+
         $new_user = new User();
 
         session()->put('user', $request->registerEmail);

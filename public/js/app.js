@@ -5732,10 +5732,13 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     register: function register() {
       if (this.form.passwordMatch && this.form.passwordLength) {
-        console.log('hello');
         axios__WEBPACK_IMPORTED_MODULE_0___default().post('/user/store', this.form).then(function (response) {
-          alert(response.data.message);
-          window.location = '/';
+          if (response.data.success == true) {
+            alert(response.data.message);
+            window.location = '/';
+          } else {
+            alert(response.data.message);
+          }
         })["catch"](function (error) {
           console.log(error);
         });

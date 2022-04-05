@@ -45,14 +45,17 @@ export default {
     methods: {
         register: function() {
             if (this.form.passwordMatch && this.form.passwordLength) {
-                console.log('hello')
                 axios.post('/user/store', this.form)
                     .then((response) => {
-                        alert(response.data.message);
-                        window.location = '/';
+                        if (response.data.success == true) {
+                            alert(response.data.message);
+                            window.location = '/';    
+                        } else {
+                            alert(response.data.message);
+                        } 
                     })
                     .catch((error) => {
-                        console.log(error);
+                        console.log(error)
                     })
 
             }
