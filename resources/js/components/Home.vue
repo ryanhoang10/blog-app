@@ -33,11 +33,7 @@
         filters: {
             removeTimeFromDate: function(date) {
                 return date.slice(0, -9)
-
             }
-        },
-        mounted() {
-            console.log('ello mounted.')
         },
         props: {
             blogs: Array
