@@ -55,7 +55,8 @@ class BlogController extends Controller
 
     public function delete(Request $request)
     {
-    
+        Blog::where('id', $request->id)->delete();
+        return response()->json(['message' => 'Blog has been deleted']);
     }
 
     public function editPage(Request $request)
